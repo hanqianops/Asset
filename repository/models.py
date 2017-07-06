@@ -79,7 +79,7 @@ class Tag(models.Model):
     """
     资产标签
     """
-    name = models.CharField('标签', max_length=32, unique=True)
+    name = models.CharField('标签', max_length=32, unique=True, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "标签表"
@@ -228,11 +228,11 @@ class AssetRecord(models.Model):
 
 
     class Meta:
-        verbose_name_plural = "资产记录表"
+        verbose_name_plural = "资产变更记录表"
 
     def __str__(self):
-        return "%s-%s-%s" % (self.asset_obj.idc.name, self.asset_obj.cabinet_num, self.asset_obj.cabinet_order)
-
+        # return "%s-%s-%s" % (self.asset_obj.idc.name, self.asset_obj.cabinet_num, self.asset_obj.cabinet_order)
+        return self.content
 
 class ErrorLog(models.Model):
     """

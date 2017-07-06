@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'repository',
-    'api'
+    'api',
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,11 @@ STATIC_URL = '/static/'
 ASSET_AUTH_KEY = '299095cc-1330-11e5-b06a-a45e60bec08b'
 ASSET_AUTH_HEADER_NAME = 'HTTP_AUTH_KEY'
 ASSET_AUTH_TIME = 2
+
+PLUGINS_DICT = {
+    'basic': 'api.service.asset.HandleBasic',
+    'nic': 'api.service.asset.HandleNic',
+    'memory': 'api.service.asset.HandleMemory',
+    'disk': 'api.service.asset.HandleDisk',
+
+}
